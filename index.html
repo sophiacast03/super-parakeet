@@ -2173,7 +2173,13 @@ vertical-align: -.125em;
 
 
 
-<p>#final?</p>
+<p>import numpy as np import matplotlib.pyplot as plt import pandas as pd import sympy</p>
+<p>xs = np.linspace (10,50)</p>
+<p>plt.title(“y = 5x”) plt.xlabel(“xaxis”)<br>
+plt.ylabel(“yaxis”) plt.plot(xs,5 * xs)</p>
+<p>plt.savefig(“y = 5x.svg”)</p>
+<p>df = pd.DataFrame(np.array([xs, 5*xs]). df.columns = [‘x’,‘y’]</p>
+<p>x,y = sympy.symbols(“x y”) sympy.Eq(y, 2*x)</p>
 
 </main>
 <!-- /main column -->
