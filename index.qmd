@@ -1,8 +1,28 @@
+import numpy as np 
+import matplotlib.pyplot as plt
+import pandas as pd 
+import sympy 
+
+
 ---
 format: 
  html:
     embed-resources: true
 ---
 
-#final? 
+xs = np.linspace (10,50)  
 
+plt.title("y = 5x") 
+plt.xlabel("xaxis")  
+plt.ylabel("yaxis")
+plt.plot(xs,5 * xs)
+
+plt.savefig("y = 5x.svg")
+
+df  = pd.DataFrame(np.array([xs, 5*xs]).
+df.columns = ['x','y']
+
+x,y = sympy.symbols("x y")
+sympy.Eq(y, 2*x)   
+
+ 
