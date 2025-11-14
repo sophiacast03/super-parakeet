@@ -2423,15 +2423,14 @@ window.Quarto = {
 <section id="calculating-atomic-mass" class="level2">
 <h2 class="anchored" data-anchor-id="calculating-atomic-mass"><strong>Calculating Atomic Mass</strong></h2>
 <p>In order for me to start the process of finding the atomic mass of a compound (my example is caffeine) I imported Numpy to help with the arrays that I will be making, Matplotlib to create a pie chart, os to open the chart, pandas to create and show a table, and sympy to make an equation and LaTex to show what the expression is.</p>
-<div id="79883003" class="cell" data-execution_count="1">
+<div id="7494b8b9" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np  </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Firstly, I created an array of the first three period rows of elements on the period table with the subsequent atomic mass of each element. In order to differentiate what type of compound I want to find the atomic mass for, I made the following coding. Individual masses is what is being used to define the overall name of the array that will provide the individual masses that make up the compound, in my case, Caffeine.</p>
-<div id="84fa3058" class="cell" data-execution_count="2">
+<div id="d21e7a54" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>massnumbers <span class="op">=</span> [</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    [<span class="st">&quot;H&quot;</span>, <span class="fl">1.008</span>],</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    [<span class="st">&quot;He&quot;</span>, <span class="fl">4.003</span>],</span>
@@ -2455,7 +2454,7 @@ window.Quarto = {
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>To find the atomic mass of any compound, it is impartitive to name what you are looking for. In this expression below, ‘u’ is showing the overall atomic mass of the element while ‘n’ is being used to represent how many of the exact elements there are. While this is being used as an expression, I found that it would be easier to hand write out this expression on paper. This is because in order to define how many elements there are in a compound you can easily use a calculator to show that ‘u’ is equal to the subsequent number of elements in the compound. To demonstrate this expression below I used Sympy and LTex. I had to add “from sympy import sympify” to simplify the expression. I then used LaTex by defining ‘u’ * ‘n’ in a string to show the expression of the two variables being multiplied.</p>
-<div id="3124d67e" class="cell" data-execution_count="3">
+<div id="59d35298" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> sympy.symbols(<span class="st">&#39;u&#39;</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> sympy.symbols(<span class="st">&#39;n&#39;</span>)</span>
@@ -2485,7 +2484,7 @@ window.Quarto = {
 <li>‘int’ stands for integer that will show the number of atoms.</li>
 </ul>
 <p>Then finally return will show the total sum of the mass of the compound being processed.</p>
-<div id="5611ef0d" class="cell" data-execution_count="4">
+<div id="eb5b04d4" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>individual_masses <span class="op">=</span> []</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> atomic_mass(array):</span>
@@ -2509,7 +2508,7 @@ window.Quarto = {
 <li><p>Prints the results nicely by rounding to the hundredths place.</p></li>
 </ul>
 <p>While this array is nicely formatted, it is burdened with the fact that it is hard to write code and fully understand it if you are not familiar with these languages being used. I think that this would be much simpler to calculate on a piece of paper with a calculator, periodic table, and a pencil with an eraser at hand for your convenience.</p>
-<div id="ca083794" class="cell" data-execution_count="5">
+<div id="d6d52c0a" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: caffeine (C8 H10 N4 O2)</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>caffeine <span class="op">=</span> np.array([[<span class="st">&quot;C&quot;</span>, <span class="dv">8</span>], [<span class="st">&quot;H&quot;</span>, <span class="dv">10</span>], [<span class="st">&quot;N&quot;</span>, <span class="dv">4</span>], [<span class="st">&quot;O&quot;</span>, <span class="dv">2</span>]])</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> atomic_mass(caffeine)</span>
@@ -2547,7 +2546,7 @@ window.Quarto = {
 <ul>
 <li>“Index=False” is used so that it will not show the row numbers on the dataframe.</li>
 </ul>
-<div id="c084a959" class="cell" data-execution_count="6">
+<div id="3fd41c4a" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(individual_masses, columns<span class="op">=</span>[<span class="st">&quot;Element&quot;</span>, <span class="st">&quot;Count&quot;</span>, <span class="st">&quot;Atomic Mass&quot;</span>, <span class="st">&quot;Total Mass&quot;</span>])</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.to_markdown(index<span class="op">=</span><span class="va">False</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -2574,19 +2573,12 @@ window.Quarto = {
 <li>“O” for Oxygen</li>
 </ul>
 <p>Every chart needs a title, the title name I used is the following:“Element Mass Contribution in Caffeine”.</p>
-<p>You can’t just spend all of your time writing code for the pie chart, just to not open it. To open it, you must first save the figure image as a PNG file. Then using the os system to “open pie.png”.</p>
-<ul>
-<li>While I used “open”, Windows uses “start”.</li>
-</ul>
-<div id="27f59ca7" class="cell" data-execution_count="7">
+<p>You can’t just spend all of your time writing code for the pie chart, just to not open it. To open it, you must first save the figure image as a PNG file. Then using “plt.show” to display the pie chart.</p>
+<div id="9d797832" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>plt.pie(df[<span class="st">&quot;Total Mass&quot;</span>], labels<span class="op">=</span>df[<span class="st">&quot;Element&quot;</span>])</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&quot;Element Mass Contribution in Caffeine&quot;</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">&quot;pie.png&quot;</span>)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>os.system(<span class="st">&quot;open pie.png&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
-<pre><code>0</code></pre>
-</div>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">

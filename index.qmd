@@ -46,7 +46,6 @@ In order for me to start the process of finding the atomic mass of a compound (m
 ```{python}
 import numpy as np  
 import matplotlib.pyplot as plt
-import os 
 import pandas as pd 
 import sympy 
 ```
@@ -189,17 +188,14 @@ Here I used "plt.pie" as it is commonly, and only used to display a piechart. To
 
 Every chart needs a title, the title name I used is the following:"Element Mass  Contribution in Caffeine".
 
-You can't just spend all of your time writing code for the pie chart, just to not open it. To open it, you must first save the figure image as a PNG file. Then using the os system to "open pie.png". 
-
-- While I  used "open", Windows uses "start".
+You can't just spend all of your time writing code for the pie chart, just to not open it. To open it, you must first save the figure image as a PNG file. Then using "plt.show" to display the pie chart.  
 
 
 ```{python}
 plt.pie(df["Total Mass"], labels=df["Element"])
 plt.title("Element Mass Contribution in Caffeine")
 plt.savefig("pie.png")
-
-os.system("open pie.png")
+plt.show()
 ```
 
 ### ***Conclusion***
