@@ -1,28 +1,223 @@
-import numpy as np 
+--- 
+title: Atomic Mass   
+subtitle: College Colloquium Final 
+author: 
+  name: Sophia Castillo 
+  affiliation: Willamette University 
+format: 	
+ html:  
+  toc: true 
+  toc-float: true 
+  theme: Morph   
+  main font: playfair display 
+  embed-resources: true
+---
+
+## **Introduction**
+ 
+In my College Colloquium class, my professor taught the class machine learning and artificial intelligence.
+These include:
+A  programming language known as Python.
+Development and System Tools known as Vim, Shell, and Git.
+Scientific Computing and Data Science libraries such as Numpy, Matplotlib, Pandas, Scippy, Sympy, Skylearn, and Numba.
+Documentation and Publishing Systems such as Markdown, LaTex, and Quarto.
+While I enjoyed learning about artificial intelligence, I found it hard to keep up with the coding and specifically understanding the command line and the different features it adheres to. I think that it is imperative to understand that my takeaways from this course are the following:
+-  It is important to understand what is going on and ask questions if you don't understand.
+-  I realized that I do not wish to take any computer coding or data science content related courses, unless I really have to.
+-  It's okay, and frankly normal to struggle with the content as it is unfamiliar to me.
+
+
+### *Objective*
+ 
+My objective for this final is to find the atomic mass of Caffeine using sympy/sympify, numpy, pandas, matplotlib, and LaTex.  
+
+### **Thesis**
+
+I believe that scientific computing can be beneficial for many uses, it is not always the best to use for everyday thinking that humans need to do as it makes things a lot more complicated than it would be to calculate and compute on your own. I do believe that scientific computing and ai can be beneficial when solving equations, it is hard to define the line at which ai is being overused to solve what a person wants. My final aim is to present the total atomic mass usage of a compound, while I am using Caffeine as an example, I will incorporate the coding in which you are able to use the coding to make your own example of any compound that you so desirely choose.
+
+
+
+## **Calculating Atomic Mass**
+In order for me to start the process of finding the atomic mass of a compound (my example is caffeine) I imported Numpy to help with the arrays that I will be making, Matplotlib to create a pie chart, os to open the chart, pandas to create and show a table, and sympy to make an equation and LaTex to show what the expression is. 
+
+```{python}
+import numpy as np  
 import matplotlib.pyplot as plt
+import os 
 import pandas as pd 
 import sympy 
+```
+
+Firstly, I created an array of the first three period rows of elements on the period table with the subsequent atomic mass of each element. In order to differentiate what type of compound I want to find the atomic mass for, I made the following coding. Individual masses is what is being used to define the overall name of the array that will provide the individual masses that make up the compound, in my case, Caffeine.
 
 
----
-format: 
- html:
-    embed-resources: true
----
+```{python}
+massnumbers = [
+    ["H", 1.008],
+    ["He", 4.003],
+    ["C", 12.011],
+    ["O", 15.999],
+    ["N", 14.007],
+    ["F", 18.998],
+    ["He", 4.003],
+    ["Li", 6.941],
+    ["Be", 9.012],
+    ["B", 10.811],
+    ["Ne", 20.180],
+    ["Na", 22.990],
+    ["Mg", 24.305],
+    ["Al", 26.982],
+    ["Si", 28.086],
+    ["P", 30.974],
+    ["S", 32.065],
+    ["Cl", 35.453],
+    ["Ar", 39.948]
+]
+```
 
-xs = np.linspace (10,50)  
+To find the atomic mass of any compound, it is impartitive to name what you are looking for. In this expression below, 'u' is showing the overall atomic mass of the element while 'n' is being used to represent how many of the exact elements there are. While this is being used as an expression, I found that it would be easier to hand write out this expression on paper. This is because in order to define how many elements there are in a compound you can easily use a calculator to show that 'u' is equal to the subsequent number of elements in the compound. To demonstrate this expression below I used Sympy and LTex. I had to add "from sympy import sympify" to simplify the expression. I then used LaTex by defining 'u' * 'n' in a string to show the expression of the two variables being multiplied.
 
-plt.title("y = 5x") 
-plt.xlabel("xaxis")  
-plt.ylabel("yaxis")
-plt.plot(xs,5 * xs)
 
-plt.savefig("y = 5x.svg")
 
-df  = pd.DataFrame(np.array([xs, 5*xs]).
-df.columns = ['x','y']
+```{python}
+import sympy 
+u = sympy.symbols('u')
+n = sympy.symbols('n')
+from sympy import sympify 
+f = sympify(u*n)
+str_expr = "u*n"
+expr = sympify(str_expr)
+expr
+```
 
-x,y = sympy.symbols("x y")
-sympy.Eq(y, 2*x)   
+Individual masses are added here to express the defined individual mass that  will be used in the compound as it will be brought from the initial array created to define each element and its individual atomic mass. It is essentially a list that will store information about each element processed. Atomic masses will demonstrate the compound by using rows to determine the element and its corresponding atomic mass. Total mass equals zero here to accumulate the total mass. I added the ".clear" to clear the global list so that the results from the previous list doesn't run or remain again. There are 2 loops incorporated here:
 
- 
+- Foward Loop i 
+
+Loop i is used to show the element in a row with its' mass. Example broken down:[n(H), Corresponding Count of the Mass Number(1.008)].
+
+- Foward Loop j 
+
+Loop j is the smaller loop that counts the number of elements being used. Example broken down: [Element(H), 1.008] 
+
+If both i and j equal the same number, in this case [0], this checks whether the element symbol in the array matches with the one in mass numbers. The following line shows that '.subs' with the following expression will substitute the values into the exprssion. 
+
+## *What does Int mean?*
+
+- 'int' stands for integer that will show the number of atoms. 
+
+Then finally return will show the total sum of the  mass of the compound being processed. 
+
+```{python}
+individual_masses = []
+
+def atomic_mass(array):
+    total_mass = 0
+    individual_masses.clear()
+    for i in array:
+        for j in massnumbers:
+            if i[0] == j[0]:
+                mass = f.subs({n:float(i[1]), u: j[1]})
+                total_mass += mass
+                individual_masses.append([i[0], int(i[1]), j[1], mass])
+    return total_mass
+```
+
+### **Finding the Atomic Mass of Caffeine**
+Here I used  the array used above, while I added the total elements of Caffeine. Caffeine has a total of 8 Carbon atoms, 10 Hydrogen atoms, 4 Nitrogen atoms, and 2 Oxygen atoms. The array shown below utilizes Numpy where the [element symbol, Number of atoms] are displayed. This prints the total number of the molecular mass to the hundredths place when rounding using (".3f"). 
+
+The provided array below: 
+
+- Clearly defines the molecule's elemental composition. 
+
+- Calculates the total mass using the "atomic_mass" function.  
+
+- Prints the results nicely by rounding to the hundredths place. 
+
+While this array is nicely formatted, it is burdened with the fact that it is hard to write code and fully understand it if you are not familiar with these languages being used. I think that this would be much simpler to calculate on a piece of paper with a calculator, periodic table, and a pencil with an eraser at hand for your convenience.
+
+```{python}
+# Example: caffeine (C8 H10 N4 O2)
+caffeine = np.array([["C", 8], ["H", 10], ["N", 4], ["O", 2]])
+total = atomic_mass(caffeine)
+print(f"Total molecular mass: {total:.3f}\n")
+```
+
+## *Data Frame*
+
+It is pretty awesome to see the set dataframe of Caffeine but it was awfully horrible creating the code to make it. The dataframe I made below displays a set of 4 columns and their corresponding names to represent Caffeine. In this section I will explain what the code in the provided coding block below means.
+
+## * What is a Dataframe?* 
+
+- A dataframe using Pandas, which we imported as pd, is  like a spreadsheet or table in Python's language. 
+
+It lists the "atomic_masss()" which we found earlier in the example for Caffeine. Columns sets a name to the columns in the table: 
+
+- Type of Element: symbol of the element. 
+- Count: the number of atoms in the molecule. 
+- Atomic Masss: atomic mass of each individual element. 
+- Total Mass: caffeine's total mass. 
+
+# What is df? 
+
+- In this dataframe, it is the table, showing all elements and their mass contributions to the molecule, aka. Caffeine. 
+
+Df converts the information of the Dataframe to a markdown formatted table so that it is nicely formatted to read. 
+
+- "Index=False" is used so that it will not show the row numbers on the dataframe. 
+
+```{python}
+df = pd.DataFrame(individual_masses, columns=["Element", "Count", "Atomic Mass", "Total Mass"])
+print(df.to_markdown(index=False))
+```
+
+# Why a Pie Chart?
+
+The reason I chose to display a piechart is because I thought it would easily represent the different sections that each element holds in Caffeine. Frankly, I did not see the appeal in usuing a bar graph or any other sort of grapah to display this, as it made the most sense in my head to use a piechart.  
+
+# What does the coding mean?
+
+Here I used "plt.pie" as it is commonly, and only used to display a piechart. To assort the slices of the chart, "df" was used once more to show the mass contributions of each element in Caffeine. In order to not lose points, and make sense of the chart, I included "labels=df["Element"] to name each slice: 
+
+- "C" for Carbon 
+- "H" for Hydrogen 
+- "N" for Nitrogen
+- "O" for Oxygen
+
+Every chart needs a title, the title name I used is the following:"Element Mass  Contribution in Caffeine".
+
+You can't just spend all of your time writing code for the pie chart, just to not open it. To open it, you must first save the figure image as a PNG file. Then using the os system to "open pie.png". 
+
+- While I  used "open", Windows uses "start".
+
+
+```{python}
+plt.pie(df["Total Mass"], labels=df["Element"])
+plt.title("Element Mass Contribution in Caffeine")
+plt.savefig("pie.png")
+
+os.system("open pie.png")
+```
+
+### ***Conclusion***
+
+In completing this project, I was able to explore the intersection of scientific computing, artificial intelligence tools, and traditional chemical calculation methods, with caffeine serving as the practical example used to demonstrate. The process of calculating the molecular mass of caffeine using Python required a combination of multiple libraries—NumPy, Pandas, Matplotlib, SymPy. I had to have a fundamental understanding of how each element contributes to the overall molecular structure. While this Final was very time consuming, this experience highlighted both the strengths and limitations of using computational tools for scientific analysis.
+
+My first major takeaway is that scientific computing significantly streamlines complex calculations. By having to create arrays to represent molecular compositions, defining atomic masses, and writing functions to compute total molecular mass, I was able to use ai to calculate the atomic mass of Caffiene, when I could have just used hand calculations. Using the atomic_mass function, I calculated the total mass of caffeine as well as the individual contributions of each element. This demonstrates the efficiency of computational methods, particularly for large molecules or chemical datasets where manual calculation becomes impractical.
+
+My second takeaway is that visualization enhances understanding. Converting the data into a Pandas DataFrame allowed me to neatly organize the information and display it in a readable format. Further using a pie chart provided a clear visual representation of the mass contribution of carbon, hydrogen, nitrogen, and oxygen to caffeine. These visualizations transformed the numerical data into an easy to read format, making it much easier to show the results. The combination of tables and charts exemplifies how computational tools not only calculate but also contextualize information, providing both precision and clarity.
+
+Despite the efficiency of these tools, this project also highlighted the challenges and potential barriers associated with scientific computing. For myself not being deeply familiar with Python or the command line, the learning curve was very steep. I struggled with writing proper code that would run in Python. I thought that what I had written was functional coding that could be read in Python,but in many cases, my language was not functionally  understood in Python. A couple of key features that I had to pay close attention to were writing loops, substituting variables with SymPy, and formatting outputs. While Python is known to be extremely flexible, the load of understanding the code structure and library functions were highlighted, and  proved that in fact, the struggles did outweigh the benefits for the calculation of Caffeine.  Small-scale calculations should honestly not be used to calculate something so simple. Calculating the molecular mass of caffeine by hand using a periodic table and a calculator is relatively straightforward compared to writing and debugging code. This aligns with the fact that scientific computing is a valuable tool but may not always be necessary for everyday problem-solving. Something so simple should be calculated by hand as it is useless to make and incorporate so many computational tools for an equation so minimal. I do see the appeal and appropriateness of using scientific computing for very large scale equations. 
+
+This project also allowed me to reflect on the broader implications of artificial intelligence and computational tools. While AI and programming can be beneficial to calculate and reveal patterns across large datasets, it is imparitive to know when human reasoning is needed. In this case, manually calculating caffeine’s molecular mass was easy to do, but for larger molecules, complex chemicals and reactions, or even data-heavy research, computational methods become essential  when trying to solve for a specific answer. Therefore, understanding the balance between manual reasoning and computational efficiency is critical, particularly for students and professionals  in interdisciplinary fields like chemistry, computer science, and data analysis who are trying to understand large equations. 
+
+Additionally, this project reinforced several key skills and takeaways from this College Colloquium. I gained practical experience in Python programming, learned how to organize and manipulate scientific data using libraries such as NumPy and Pandas, and visualized results with Matplotlib. Beyond its technical skills, I developed an semiappreciation for problem-solving, patience, and iterative learning. Encountering errors, debugging code, and troubleshooting issues with packages and variable substitution highlighted the importance of asking questions, seeking clarification, and persevering despite not wanting to do this final, if it weren’t for the grade associated with it.
+
+Lastly, this project demonstrates the variety that  computational tools provide in scientific contexts. By using arrays, functions, and visualizations, I created a template that could be adapted to be used for any chemical compound. While caffeine was my example, the same process could be applied to molecules of varying complexity, allowing for quick calculations, clear visual presentation of data, and visual insight into chemical structures. This allows for adaptability and highlights the practical benefits of scientific computing, especially for research, education, and data-driven analysis.
+
+In conclusion, the experience of calculating caffeine’s atomic mass using Python illustrates the strengths and limitations of scientific computing. While manual calculations are sufficient for simple molecules, computational tools provide accuracy, efficiency, and visual clarity for larger and more complex datasets. The project reaffirmed my belief that while AI and programming can enhance scientific work, it is equally important to know when human reasoning is enough. Ultimately, this project not only produced a numerical answer—the total molecular mass of caffeine—but also offered a qualitative insight into the relationship between traditional problem-solving and computational science. 
+
+
+
+
+
