@@ -2358,7 +2358,7 @@ window.Quarto = {
   <li><a href="#finding-the-atomic-mass-of-caffeine" id="toc-finding-the-atomic-mass-of-caffeine" class="nav-link" data-scroll-target="#finding-the-atomic-mass-of-caffeine"><strong>Finding the Atomic Mass of Caffeine</strong></a></li>
   </ul></li>
   <li><a href="#data-frame" id="toc-data-frame" class="nav-link" data-scroll-target="#data-frame"><em>Data Frame</em></a></li>
-  <li><a href="#what-is-a-dataframe" id="toc-what-is-a-dataframe" class="nav-link" data-scroll-target="#what-is-a-dataframe">* What is a Dataframe?*</a></li>
+  <li><a href="#what-is-a-dataframe" id="toc-what-is-a-dataframe" class="nav-link" data-scroll-target="#what-is-a-dataframe"><em>What is a Dataframe?</em></a></li>
   <li><a href="#what-is-df" id="toc-what-is-df" class="nav-link" data-scroll-target="#what-is-df">What is df?</a></li>
   <li><a href="#why-a-pie-chart" id="toc-why-a-pie-chart" class="nav-link" data-scroll-target="#why-a-pie-chart">Why a Pie Chart?</a></li>
   <li><a href="#what-does-the-coding-mean" id="toc-what-does-the-coding-mean" class="nav-link" data-scroll-target="#what-does-the-coding-mean">What does the coding mean?</a>
@@ -2405,7 +2405,12 @@ window.Quarto = {
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction"><strong>Introduction</strong></h2>
-<p>In my College Colloquium class, my professor taught the class machine learning and artificial intelligence. These include: A programming language known as Python. Development and System Tools known as Vim, Shell, and Git. Scientific Computing and Data Science libraries such as Numpy, Matplotlib, Pandas, Scippy, Sympy, Skylearn, and Numba. Documentation and Publishing Systems such as Markdown, LaTex, and Quarto. While I enjoyed learning about artificial intelligence, I found it hard to keep up with the coding and specifically understanding the command line and the different features it adheres to. I think that it is imperative to understand that my takeaways from this course are the following: - It is important to understand what is going on and ask questions if you don’t understand. - I realized that I do not wish to take any computer coding or data science content related courses, unless I really have to. - It’s okay, and frankly normal to struggle with the content as it is unfamiliar to me.</p>
+<p>In my College Colloquium class, my professor taught the class machine learning and artificial intelligence. These include: A programming language known as Python. Development and System Tools known as Vim, Shell, and Git. Scientific Computing and Data Science libraries such as Numpy, Matplotlib, Pandas, Scippy, Sympy, Skylearn, and Numba. Documentation and Publishing Systems such as Markdown, LaTex, and Quarto. While I enjoyed learning about artificial intelligence, I found it hard to keep up with the coding and specifically understanding the command line and the different features it adheres to. I think that it is imperative to understand that my takeaways from this course are the following:</p>
+<ul>
+<li><p>It is important to understand what is going on and ask questions if you don’t understand.</p></li>
+<li><p>I realized that I do not wish to take any computer coding or data science content related courses, unless I really have to.</p></li>
+<li><p>It’s okay, and frankly normal to struggle with the content as it is unfamiliar to me.</p></li>
+</ul>
 <section id="objective" class="level3">
 <h3 class="anchored" data-anchor-id="objective"><em>Objective</em></h3>
 <p>My objective for this final is to find the atomic mass of Caffeine using sympy/sympify, numpy, pandas, matplotlib, and LaTex.</p>
@@ -2418,7 +2423,7 @@ window.Quarto = {
 <section id="calculating-atomic-mass" class="level2">
 <h2 class="anchored" data-anchor-id="calculating-atomic-mass"><strong>Calculating Atomic Mass</strong></h2>
 <p>In order for me to start the process of finding the atomic mass of a compound (my example is caffeine) I imported Numpy to help with the arrays that I will be making, Matplotlib to create a pie chart, os to open the chart, pandas to create and show a table, and sympy to make an equation and LaTex to show what the expression is.</p>
-<div id="0e21bdbc" class="cell" data-execution_count="1">
+<div id="79883003" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np  </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os </span>
@@ -2426,7 +2431,7 @@ window.Quarto = {
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Firstly, I created an array of the first three period rows of elements on the period table with the subsequent atomic mass of each element. In order to differentiate what type of compound I want to find the atomic mass for, I made the following coding. Individual masses is what is being used to define the overall name of the array that will provide the individual masses that make up the compound, in my case, Caffeine.</p>
-<div id="539b754d" class="cell" data-execution_count="2">
+<div id="84fa3058" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>massnumbers <span class="op">=</span> [</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    [<span class="st">&quot;H&quot;</span>, <span class="fl">1.008</span>],</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    [<span class="st">&quot;He&quot;</span>, <span class="fl">4.003</span>],</span>
@@ -2450,7 +2455,7 @@ window.Quarto = {
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>To find the atomic mass of any compound, it is impartitive to name what you are looking for. In this expression below, ‘u’ is showing the overall atomic mass of the element while ‘n’ is being used to represent how many of the exact elements there are. While this is being used as an expression, I found that it would be easier to hand write out this expression on paper. This is because in order to define how many elements there are in a compound you can easily use a calculator to show that ‘u’ is equal to the subsequent number of elements in the compound. To demonstrate this expression below I used Sympy and LTex. I had to add “from sympy import sympify” to simplify the expression. I then used LaTex by defining ‘u’ * ‘n’ in a string to show the expression of the two variables being multiplied.</p>
-<div id="f88d69dc" class="cell" data-execution_count="3">
+<div id="3124d67e" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> sympy.symbols(<span class="st">&#39;u&#39;</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> sympy.symbols(<span class="st">&#39;n&#39;</span>)</span>
@@ -2480,7 +2485,7 @@ window.Quarto = {
 <li>‘int’ stands for integer that will show the number of atoms.</li>
 </ul>
 <p>Then finally return will show the total sum of the mass of the compound being processed.</p>
-<div id="2c8ed875" class="cell" data-execution_count="4">
+<div id="5611ef0d" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>individual_masses <span class="op">=</span> []</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> atomic_mass(array):</span>
@@ -2504,7 +2509,7 @@ window.Quarto = {
 <li><p>Prints the results nicely by rounding to the hundredths place.</p></li>
 </ul>
 <p>While this array is nicely formatted, it is burdened with the fact that it is hard to write code and fully understand it if you are not familiar with these languages being used. I think that this would be much simpler to calculate on a piece of paper with a calculator, periodic table, and a pencil with an eraser at hand for your convenience.</p>
-<div id="644249d2" class="cell" data-execution_count="5">
+<div id="ca083794" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: caffeine (C8 H10 N4 O2)</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>caffeine <span class="op">=</span> np.array([[<span class="st">&quot;C&quot;</span>, <span class="dv">8</span>], [<span class="st">&quot;H&quot;</span>, <span class="dv">10</span>], [<span class="st">&quot;N&quot;</span>, <span class="dv">4</span>], [<span class="st">&quot;O&quot;</span>, <span class="dv">2</span>]])</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> atomic_mass(caffeine)</span>
@@ -2521,7 +2526,7 @@ window.Quarto = {
 <p>It is pretty awesome to see the set dataframe of Caffeine but it was awfully horrible creating the code to make it. The dataframe I made below displays a set of 4 columns and their corresponding names to represent Caffeine. In this section I will explain what the code in the provided coding block below means.</p>
 </section>
 <section id="what-is-a-dataframe" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-a-dataframe">* What is a Dataframe?*</h2>
+<h2 class="anchored" data-anchor-id="what-is-a-dataframe"><em>What is a Dataframe?</em></h2>
 <ul>
 <li>A dataframe using Pandas, which we imported as pd, is like a spreadsheet or table in Python’s language.</li>
 </ul>
@@ -2542,7 +2547,7 @@ window.Quarto = {
 <ul>
 <li>“Index=False” is used so that it will not show the row numbers on the dataframe.</li>
 </ul>
-<div id="634100ee" class="cell" data-execution_count="6">
+<div id="c084a959" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(individual_masses, columns<span class="op">=</span>[<span class="st">&quot;Element&quot;</span>, <span class="st">&quot;Count&quot;</span>, <span class="st">&quot;Atomic Mass&quot;</span>, <span class="st">&quot;Total Mass&quot;</span>])</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.to_markdown(index<span class="op">=</span><span class="va">False</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -2573,7 +2578,7 @@ window.Quarto = {
 <ul>
 <li>While I used “open”, Windows uses “start”.</li>
 </ul>
-<div id="07501105" class="cell" data-execution_count="7">
+<div id="27f59ca7" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>plt.pie(df[<span class="st">&quot;Total Mass&quot;</span>], labels<span class="op">=</span>df[<span class="st">&quot;Element&quot;</span>])</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&quot;Element Mass Contribution in Caffeine&quot;</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">&quot;pie.png&quot;</span>)</span>

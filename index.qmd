@@ -22,8 +22,11 @@ Development and System Tools known as Vim, Shell, and Git.
 Scientific Computing and Data Science libraries such as Numpy, Matplotlib, Pandas, Scippy, Sympy, Skylearn, and Numba.
 Documentation and Publishing Systems such as Markdown, LaTex, and Quarto.
 While I enjoyed learning about artificial intelligence, I found it hard to keep up with the coding and specifically understanding the command line and the different features it adheres to. I think that it is imperative to understand that my takeaways from this course are the following:
+
 -  It is important to understand what is going on and ask questions if you don't understand.
+
 -  I realized that I do not wish to take any computer coding or data science content related courses, unless I really have to.
+
 -  It's okay, and frankly normal to struggle with the content as it is unfamiliar to me.
 
 
@@ -147,7 +150,7 @@ print(f"Total molecular mass: {total:.3f}\n")
 
 It is pretty awesome to see the set dataframe of Caffeine but it was awfully horrible creating the code to make it. The dataframe I made below displays a set of 4 columns and their corresponding names to represent Caffeine. In this section I will explain what the code in the provided coding block below means.
 
-## * What is a Dataframe?* 
+## *What is a Dataframe?* 
 
 - A dataframe using Pandas, which we imported as pd, is  like a spreadsheet or table in Python's language. 
 
